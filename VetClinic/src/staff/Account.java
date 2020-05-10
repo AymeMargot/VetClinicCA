@@ -19,9 +19,8 @@ public class Account extends Administration implements TaskInterface {
 		int i=0;
 		Random rand = new Random(); 
 		while(i < 3) {
-			int aux = rand.nextInt(Stafftasks.getSize());
-			int task = Stafftasks.getTaskCode(aux);
-			if(tasks.add(task))
+			int index = rand.nextInt(Stafftasks.getSize());			
+			if(tasks.add(Stafftasks.getTask(index)))
 				i++;
 		}
 	}

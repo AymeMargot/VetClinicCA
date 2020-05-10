@@ -19,8 +19,8 @@ public class StaffFactory {
 	private static ProcessName nameGenerator;
 	private static ProcessName surnameGenerator;
 	private static ProcessCode codeGenerator;
-	private static String pathFileName ="C:\\JavaProyect\\VetClinic\\src\\staffFactory\\names.txt";	
-	private static String pathFileSurname ="C:\\JavaProyect\\VetClinic\\src\\staffFactory\\surnames.txt";
+	private static String pathFileName ="..\\VetClinic\\src\\staffFactory\\names.txt";	
+	private static String pathFileSurname ="..\\VetClinic\\src\\staffFactory\\surnames.txt";
 	
 	public StaffFactory() {
 		
@@ -261,7 +261,7 @@ public class StaffFactory {
 		for(int i=0; i < animals.getSize();i++) {
 			
 			int j= rand.nextInt(medical.size());
-			medical.get(j).setAnimal(animals.getAnimal(i).getCode());				
+			medical.get(j).setAnimal(animals.getAnimal(i));				
 		}	
 		return true;	
 	}

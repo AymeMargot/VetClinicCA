@@ -67,6 +67,11 @@ public class TaskFactory {
 		tasks.add(new Task(28,"Assist veterinarians and vet technicians with lab work"));
 		tasks.add(new Task(29,"Clean, sterilize, and maintain kennels, operating rooms, examining rooms, cages, and surgical equipment "));
 	}
+	
+	public Task getTask(int i) {
+		
+		return tasks.get(i);
+	}
 	public String getTaskName(int code) {
 		
 		int i=0;

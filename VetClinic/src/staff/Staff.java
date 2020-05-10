@@ -2,6 +2,9 @@ package staff;
 
 import java.util.HashSet;
 
+import animal.Animal;
+import task.Task;
+
 public class Staff {
 	
 	protected int number;
@@ -10,8 +13,8 @@ public class Staff {
 	protected int salaryLevel;
 	protected String category;
 	
-	protected  HashSet<Integer> tasks = new HashSet<Integer>();	
-	protected  HashSet<Integer> animals = new HashSet<Integer>();	
+	protected  HashSet<Task> tasks = new HashSet<Task>();	
+	protected  HashSet<Animal> animals = new HashSet<Animal>();	
 
 	public Staff() {
 		this.number = 0;
@@ -76,8 +79,8 @@ public class Staff {
 		this.salaryLevel = salaryLevel;
 	}
 
-	public void setAnimal(int code) {
-		animals.add(code);
+	public void setAnimal(Animal animal) {
+		animals.add(animal);
 	}
 	
 	

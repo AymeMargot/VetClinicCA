@@ -11,7 +11,7 @@ public class AnimalFactory {
 	private static ProcessName nameGenerator;
 	private static ProcessMedicalCondition healthConditionsGenerator;
 	private static ProcessCode codeGenerator;
-	private static String pathFile ="C:\\JavaProyect\\VetClinic\\src\\animalFactory\\petnames.txt";	
+	private static String pathFile ="..\\VetClinic\\src\\animalFactory\\petnames.txt";	
 	
 	public AnimalFactory() {
 		
