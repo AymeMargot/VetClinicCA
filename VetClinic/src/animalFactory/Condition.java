@@ -10,19 +10,19 @@ public class Condition {
 		this.name = name;
 	}
 	
-	protected int getCode() {
+	public int getCode() {
 		return code;
 	}
 	
-	protected void setCode(int code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 	
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	

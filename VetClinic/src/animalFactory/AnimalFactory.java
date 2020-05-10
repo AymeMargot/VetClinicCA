@@ -37,7 +37,7 @@ public class AnimalFactory {
 		while(counter < limit) {
 			
 			String name = nameGenerator.getName(nameGenerator.getSize());
-			int condition = healthConditionsGenerator.getCondition();
+			Condition condition = healthConditionsGenerator.getCondition();
 			int code = codeGenerator.getCode();
 					
 			switch(num) {

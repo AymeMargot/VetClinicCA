@@ -1,10 +1,12 @@
 package animal;
 
+import animalFactory.Condition;
+
 public class Rabbit extends Animal {
 	
 	protected static int limitAge = 8;
 	
-	public Rabbit(int code, String name, int condition) {
+	public Rabbit(int code, String name, Condition condition) {
 		
 		super(code, name, condition);
 		this.age= this.randomAge.nextInt(limitAge);

@@ -2,6 +2,7 @@ package animal;
 
 import java.util.Random;
 
+import animalFactory.Condition;
 import animalFactory.ProcessMedicalCondition;
 
 public abstract class Animal {
@@ -9,14 +10,14 @@ public abstract class Animal {
 	protected Integer code;
 	protected String name;
 	protected Integer age;
-	protected Integer medicalCondition;
+	protected Condition medicalCondition;
 	protected String category;
 	protected int priorityLookAfter;
 	protected boolean lookAfter;
 	
 	protected Random randomAge = new Random();
 	
-	public Animal(int code, String name, int condition) {
+	public Animal(int code, String name, Condition condition) {
 		
 		this.code = code;
 		this.name = name;
@@ -65,11 +66,11 @@ public abstract class Animal {
 		this.age = age;
 	}
 
-	public Integer getMedicalCondition() {
+	public Condition getMedicalCondition() {
 		return medicalCondition;
 	}
 
-	public void setMedicalCondition(int medicalCondition) {
+	public void setMedicalCondition(Condition medicalCondition) {
 		this.medicalCondition = medicalCondition;
 	}
 
@@ -82,10 +83,7 @@ public abstract class Animal {
 	}
 	
 	public String toString(){ 
-		
-		ProcessMedicalCondition healthConditions = new ProcessMedicalCondition();
-		String condition = healthConditions.getCondition(medicalCondition);
-		return "[("+code+"), "+name+","+age+","+condition+",("+category+") "+ this.priorityLookAfter+"]";  
+		return "[("+code+"), "+name+","+age+","+medicalCondition.getName()+",("+category+") "+"]";  
 	} 
 	
 	

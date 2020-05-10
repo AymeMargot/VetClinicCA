@@ -30,13 +30,19 @@ public class ProcessMedicalCondition {
 	}
 	
 	
-	public int getCondition() {
+	public int getConditionCode() {
 		
 		Condition aux = healthConditions.get(random.nextInt(healthConditions.size()));
 		return(aux.getCode());
 	}
 	
-	public String getCondition(int code) {	
+	public Condition getCondition() {
+		
+		Condition aux = healthConditions.get(random.nextInt(healthConditions.size()));
+		return(aux);
+	}
+	
+	public String getConditionName(int code) {	
 		
 		boolean find = false;
 		int i = 0;

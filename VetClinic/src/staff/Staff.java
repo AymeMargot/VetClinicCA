@@ -1,6 +1,11 @@
 package staff;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import animal.Animal;
 import task.Task;
@@ -32,7 +37,13 @@ public class Staff {
 		category= this.getClass().getSimpleName();
 	}
 	
-	public boolean taskHere(int task) {
+	public void orderAnimals() {
+		
+		Set<Animal> treeSet = new TreeSet<Animal>(animals);
+		System.out.println("Sorted elements\n"+ treeSet);
+	}
+	
+	public boolean taskHere(Task task) {
 		return (tasks.contains(task));
 	}	
 	

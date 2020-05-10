@@ -7,6 +7,7 @@ import animalFactory.AnimalFactory;
 import general.ProcessCode;
 import general.ProcessName;
 import staff.*;
+import task.Task;
 import taskFactory.TaskFactory;
 
 
@@ -177,7 +178,7 @@ public class StaffFactory {
 		return true;
 	}
 	
-	public boolean printStaffByTask(int code, TaskFactory tasks) {
+	public boolean printStaffByTask(Task task, TaskFactory tasks) {
 		
 		if(staff.size() == 0) {
 			System.out.println("No staff into the company, please check it");
@@ -185,10 +186,10 @@ public class StaffFactory {
 		}
 		int counter = 0;
 		System.out.println("....................................................");
-		System.out.println("Task (Code: "+ code +")  "+ tasks.getTaskName(code));
+		System.out.println("Task (Code: "+ task.getCode() +")  "+ task.getName());
 		System.out.println("....................................................");
 		for(int i=0; i < staff.size(); i++) {
-			if(staff.get(i).taskHere(code)) {
+			if(staff.get(i).taskHere(task)) {
 				System.out.println(staff.get(i));
 				counter++;
 			}
