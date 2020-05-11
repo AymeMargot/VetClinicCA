@@ -1,9 +1,8 @@
 package staff;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -20,6 +19,7 @@ public class Staff {
 	
 	protected  HashSet<Task> tasks = new HashSet<Task>();	
 	protected  HashSet<Animal> animals = new HashSet<Animal>();	
+	protected  Queue<Animal> lookAfterAnimals = new LinkedList<Animal>();	
 
 	public Staff() {
 		this.number = 0;
@@ -37,8 +37,7 @@ public class Staff {
 		category= this.getClass().getSimpleName();
 	}
 	
-	public void orderAnimals() {
-		
+	public void orderAnimals() {		
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		System.out.println("Sorted elements\n"+ treeSet);
 	}
@@ -92,8 +91,8 @@ public class Staff {
 
 	public void setAnimal(Animal animal) {
 		animals.add(animal);
-	}
-	
+	}	
+
 	
 	@Override
     public String toString() {

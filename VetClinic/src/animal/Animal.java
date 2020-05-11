@@ -3,16 +3,14 @@ package animal;
 import java.util.Random;
 
 import animalFactory.Condition;
-import animalFactory.ProcessMedicalCondition;
 
-public abstract class Animal {
+public abstract class Animal implements Comparable<Animal> {
 	
 	protected Integer code;
 	protected String name;
 	protected Integer age;
 	protected Condition medicalCondition;
 	protected String category;
-	protected int priorityLookAfter;
 	protected boolean lookAfter;
 	
 	protected Random randomAge = new Random();
@@ -36,14 +34,6 @@ public abstract class Animal {
 
 	public void setLookAfter(boolean lookAfter) {
 		this.lookAfter = lookAfter;
-	}
-
-	public int getPriorityLookAfter() {
-		return priorityLookAfter;
-	}
-
-	public void setPriorityLookAfter(int priorityLookAfter) {
-		this.priorityLookAfter = priorityLookAfter;
 	}
 
 	public Integer getCode() {
@@ -86,6 +76,10 @@ public abstract class Animal {
 		return "[("+code+"), "+name+","+age+","+medicalCondition.getName()+",("+category+") "+"]";  
 	} 
 	
+	@Override
+	public int compareTo(Animal animal) {		
+		return ((Integer)this.code).compareTo(animal.code);
+    }
 	
 	
 }

@@ -65,7 +65,6 @@ public class AnimalFactory {
 				break;
 				
 			}// end switch
-			animals.get(animals.size()-1).setPriorityLookAfter(animals.size()-1);
 			num++;		
 		}// endWhile		
 	}
@@ -122,6 +121,6 @@ public class AnimalFactory {
 		System.out.println("....................................................");
 		System.out.println("Total: "+ counter+ "  into the factory");
 		return true;
-	}
+	}	
 	
 }
