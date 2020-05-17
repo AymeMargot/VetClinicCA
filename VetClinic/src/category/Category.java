@@ -17,7 +17,7 @@ public class Category {
 		this.namePackage = namePackage;			
 	}
 	
-	public boolean process() {
+	public void process() {
 		try {
 			Enumeration<URL> urls = Thread.currentThread().getContextClassLoader().getResources(namePackage);
 			while (urls.hasMoreElements()) {
@@ -32,38 +32,36 @@ public class Category {
 		}
 		catch(Exception e) {
 			System.out.println("Something is going wrong, categories not processed");
-			return false;
 		}
-		return true;
 	}
 	
 	public int print() {		
 		input = new Scanner(System.in);		
 		if(categories.size() == 0) {
 			System.out.println("Any category added, please try again");
-			return 0;
+			return -1;
 		}
 		else {
 			System.out.println("....................................................");
 			System.out.println("Categories");
 			System.out.println("....................................................");
-			for(int i=1; i < categories.size();i++) {
-				System.out.println(i+") "+categories.get(i));				
+			for(int i=0; i < categories.size();i++) {
+				System.out.println(i+1+") "+categories.get(i));				
 			}			
-			System.out.println(categories.size()+") Back to the main menu");
+			System.out.println(categories.size()+1+") Back to the main menu");
 			System.out.print("Select an option  ");
 			try {
 				int option = input.nextInt();
-				if(option > 0 && option < categories.size())
-					return option;
+				if(option > 0 && (option <= categories.size()+1))
+					return option-1;
 				else {
 					System.out.println("Invalid number, try again");
-					return categories.size();
+					return -2;
 				}
 			}
 			catch(Exception e) {
 				System.out.println("Invalid number, try again");
-				return categories.size();
+				return -2;
 			}
 		}
 	}

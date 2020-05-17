@@ -45,14 +45,13 @@ public class Menu {
 			option = input.nextInt();
 			if(option < 1 || option > items.size()){
 				System.out.println("Invalid option try again");
-				return 0;
-			}
-			
+				return -1;
+			}			
 			return option;
 		}
 		catch(Exception e) {
 			System.out.println("Invalid option, try again");
-			return 0;
+			return -1;
 			
 	    }
 	}

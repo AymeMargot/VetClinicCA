@@ -118,17 +118,19 @@ public class StaffFactory {
 		}// endWhile		
 	}
 	
-	public boolean printStaff() {
+	public void printStaff() {
 		
 		if(staff.size() == 0) {
 			System.out.println("There are no staff in the company, please try again");
-			return false;
 		}
-		
+		System.out.println("...............................................................");
+		System.out.println("Vet Lovely Pet - Staff -");
+		System.out.println("...............................................................");
 		for(int i=0; i < staff.size(); i++) {
 			System.out.println(staff.get(i));
 		}
-		return true;
+		System.out.println("...............................................................");
+		System.out.println("Total Employees "+ staff.size());
 	}
 	
 	public boolean printAdminStaff() {
@@ -189,7 +191,7 @@ public class StaffFactory {
 		System.out.println("Task (Code: "+ task.getCode() +")  "+ task.getName());
 		System.out.println("....................................................");
 		for(int i=0; i < staff.size(); i++) {
-			if(staff.get(i).taskHere(task)) {
+			if(staff.get(i).isContained(task)) {
 				System.out.println(staff.get(i));
 				counter++;
 			}
@@ -199,24 +201,22 @@ public class StaffFactory {
 		return true;
 	}
 	
-	public boolean searchStaffByName(String name) {
+	public void searchStaffByName(String name) {
 		if(staff.size() == 0) {
 			System.out.println("No Staff into the company, please check it");
-			return false;
 		}
 		int counter = 0;
 		System.out.println("....................................................");
 		System.out.println("Searching  "+ name);
 		System.out.println("....................................................");
 		for(int i=0; i < staff.size(); i++) {
-			if(name.equals(staff.get(i).getName())) {
+			if(name.toLowerCase().equals(staff.get(i).getName().toLowerCase())) {
 				System.out.println(staff.get(i));
 				counter++;
 			}
 		}
 		System.out.println("....................................................");
-		System.out.println("Total: "+ counter+ "  into the company");
-		return true;
+		System.out.println("Total: "+ counter+ "  into the company");	
 	}
 	
 	public boolean searchStaffByMedic(String name) {

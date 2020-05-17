@@ -1,7 +1,10 @@
 package staff;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
@@ -42,10 +45,20 @@ public class Staff {
 		System.out.println("Sorted elements\n"+ treeSet);
 	}
 	
-	public boolean taskHere(Task task) {
-		return (tasks.contains(task));
-	}	
+
+	public boolean isContained(Task task) {
+		
+		ArrayList<Task> aux = new ArrayList<Task>(tasks);
+		int i=0;
+		while(i < aux.size()) {
+			if(aux.get(i).getCode() == task.getCode())
+				return true;
+			i++;
+		}       
+        return false;
+    }
 	
+		
 	public String getCategory() {
 		return category;
 	}
@@ -98,4 +111,5 @@ public class Staff {
     public String toString() {
        return "[("+number+"), "+name+","+surname+","+salaryLevel+",("+category+"), Duties: "+tasks+"]" ;
     }
+
 }

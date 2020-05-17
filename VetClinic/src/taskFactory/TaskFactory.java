@@ -97,7 +97,7 @@ public class TaskFactory {
 		input = new Scanner(System.in);		
 		if(tasks.size() == 0) {
 			System.out.println("Any task added, please try again");
-			return 0;
+			return -1;
 		}
 		else {
 			System.out.println("....................................................");
@@ -110,16 +110,16 @@ public class TaskFactory {
 			System.out.print("Select an option  ");
 			try {
 				int option = input.nextInt();
-				if(option > 0 && option < tasks.size())
+				if(option > 0 && option <= tasks.size()+1)
 					return option-1;
 				else {
 					System.out.println("Invalid number, try again");
-					return tasks.size();
+					return -2;
 				}
 			}
 			catch(Exception e) {
 				System.out.println("Invalid number, try again");
-				return tasks.size();
+				return -2;
 			}
 		}
 	}	
