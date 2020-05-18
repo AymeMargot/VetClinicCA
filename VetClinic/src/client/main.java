@@ -39,22 +39,26 @@ public class main {
 		tasks.produceTaskReceptionist();
 	}
 	
-	public void listStaff() {		
+	public void listStaff() {
 		
-		try {
-			System.out.print("Enter number of Admin Staff you want to create: ");
-			int qtyAdmin = number.nextInt();
-			System.out.print("Enter number of Medical Staff you want to create: ");
-			int qtyMedical = number.nextInt();
-			
-			staff.produceStaffAdmin(qtyAdmin);
-			staff.produceStaffMedical(qtyMedical);
+		if(staff.getAllSize() != 0) 
 			staff.printStaff();
-		}
-		catch(Exception e) {
-			System.out.println("Error, invalid number entered, try again");
-		}		 
-		 
+		else {
+		
+			try {
+				System.out.print("Enter number of Admin Staff you want to create: ");
+				int qtyAdmin = number.nextInt();
+				System.out.print("Enter number of Medical Staff you want to create: ");
+				int qtyMedical = number.nextInt();
+			
+				staff.produceStaffAdmin(qtyAdmin);
+				staff.produceStaffMedical(qtyMedical);
+				staff.printStaff();
+			}
+			catch(Exception e) {
+				System.out.println("Error, invalid number entered, try again");
+			}		 
+		} 
 	}
 	
 	public void listByCategory() {
@@ -112,15 +116,102 @@ public class main {
 	
 	public void listAnimals() {
 		
-		System.out.println("Enter the number of animals, you want to create");
-		try {
-			int qtyAnimal = number.nextInt();
-			factory.produceAnimals(qtyAnimal);
+		if(factory.getSize() != 0) 
 			factory.printAnimals();
+		else {
+		
+			System.out.println("Enter the number of animals, you want to create");
+			try {
+				int qtyAnimal = number.nextInt();
+				factory.produceAnimals(qtyAnimal);
+				factory.printAnimals();
+			}
+			catch(Exception e) {
+				System.out.println("number invalid, please try again");
+			}
 		}
-		catch(Exception e) {
-			System.out.println("number invalid, please try again");
-		}				
+	}
+	
+	public void listAnimalByCategory() {
+	
+		if(factory.getSize() == 0) {
+			System.out.println("There are no animals into the factory, please go option 5 first");
+		}
+		else {
+			
+			int option = animalsCategory.print();
+			while(option != animalsCategory.getSize() && option!=-1) {
+				if(option != -2) {
+					String category = animalsCategory.getName(option);
+					factory.printAnimalsByCategory(category);
+				}
+				option = animalsCategory.print();
+			}
+		}		
+	}
+	
+	public void searchAnimalByName() {
+		
+		if(factory.getSize() == 0) {
+			System.out.println("There are no animals into the factory, please go option 5 first");
+		}
+		else {
+			
+			System.out.print("Enter the name animal you are looking for: ");
+			try{
+				String searching = text.nextLine();
+				factory.searchAnimalByName(searching);
+			}
+			catch(Exception e) {
+				System.out.println("data invalid!!, please try again");
+			}	
+		}		
+	}
+	
+	public void listAnimalsAssignedToStaff() {
+		
+		if(staff.getAllSize() == 0 || factory.getSize() == 0) {
+			System.out.println("There are no staff in the company, or animals into the factory, please go option 1 and 5 first");
+		}
+		else {
+			staff.assignAnimals(factory);
+			staff.printStaffAnimals();
+		}		
+	}
+	
+	public void listAnimalsByMedical() {
+		
+		if(staff.getSizeMedical() == 0) {
+			System.out.println("There are no staff in the company, please go option 1 first");
+		}
+		else {
+			
+			System.out.print("Enter the name medical staff you are looking for: ");
+			try{
+				String searching = text.nextLine();
+				staff.searchStaffByMedic(searching);
+			}
+			catch(Exception e) {
+				System.out.println("data invalid!!, please try again");
+			}	
+		}
+	}
+	
+	public void listAnimalsByLookAfter() {
+		if(staff.getSizeMedical() == 0) {
+			System.out.println("There are no staff in the company, please go option 1 first");
+		}
+		else {
+			
+			System.out.print("Enter the name medical staff: ");
+			try{
+				String searching = text.nextLine();
+				staff.searchStaffByLookAfter(searching);
+			}
+			catch(Exception e) {
+				System.out.println("data invalid!!, please try again");
+			}	
+		}
 	}
 	
 	public void run() {
@@ -144,11 +235,28 @@ public class main {
 			  case 5:
 				  listAnimals();
 				break;
+			  case 6:
+				  listAnimalByCategory();
+				break;
+			  case 7:
+				  searchAnimalByName();
+				break;
+			  case 8:
+				  listAnimalsAssignedToStaff();
+				break;
+			  case 9:
+				  listAnimalsByMedical();
+				break;
+			  case 10:				 
+				  listAnimalsByLookAfter();
+				break;
 			  default:
+				System.out.println("Data entered invalid!!.");
 			    System.exit(0);
 			}			
 			
 		}while(option != menu.getExit());
+		System.out.println("You log out from the System...");
 	}
 	
 	public static void main(String[] args) {

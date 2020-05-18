@@ -73,7 +73,7 @@ public abstract class Animal implements Comparable<Animal> {
 	}
 	
 	public String toString(){ 
-		return "[("+code+"), "+name+","+age+","+medicalCondition.getName()+",("+category+") "+"]";  
+		return "Cod"+code+"  "+name+"("+category+") - "+age+" - "+medicalCondition.getName();  
 	} 
 	
 	@Override

@@ -21,7 +21,7 @@ public class test {
 		factory.produceAnimals(500);
 		factory.printAnimals();
 		
-		if(factory.searchAnimalByName("Bubba"))
+	//	if(factory.searchAnimalByName("Bubba"))
 			System.out.println("ok");		
 		
 		staff.produceStaffAdmin(10);
@@ -60,13 +60,13 @@ public class test {
 			staff.printStaffByTask(code,tasks);
 		}
 	*/	
-		if(staff.assignAnimals(factory)) {
+		//if(staff.assignAnimals(factory)) {
 			staff.printMedicalStaff();
-		}
+	//	}
 		
-		if(staff.searchStaffByMedic("Amelia")) {
+		//if(staff.searchStaffByMedic("Amelia")) {
 			System.out.println("ok");
-		}
+		//}
 	}
 
 }

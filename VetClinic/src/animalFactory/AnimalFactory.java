@@ -103,24 +103,22 @@ public class AnimalFactory {
 		return true;
 	}
 	
-	public boolean searchAnimalByName(String name) {
+	public void searchAnimalByName(String name) {
 		if(animals.size() == 0) {
 			System.out.println("No animals into the factory, please check it");
-			return false;
 		}
 		int counter = 0;
 		System.out.println("....................................................");
 		System.out.println("Searching  "+ name);
 		System.out.println("....................................................");
 		for(int i=0; i < animals.size(); i++) {
-			if(name.equals(animals.get(i).getName())) {
+			if(name.toLowerCase().equals(animals.get(i).getName().toLowerCase())) {
 				System.out.println(animals.get(i));
 				counter++;
 			}
 		}
 		System.out.println("....................................................");
 		System.out.println("Total: "+ counter+ "  into the factory");
-		return true;
 	}	
 	
 }

@@ -33,12 +33,14 @@ public class Menu {
 		Set <Map.Entry <Integer,String> > each = items.entrySet(); 
 		
 		int option;
-		
+		System.out.println("....................................................");
+		System.out.println("Vet My lovely pet  - System -");
+		System.out.println("....................................................");
 		for (Map.Entry <Integer,String> value:each){ 
 			System.out.print(value.getKey()+".- "); 
 	        System.out.println(value.getValue()); 
 	    } 
-
+		System.out.println("....................................................");
 		System.out.print("Enter an option:  ");
 		try {
 			
@@ -51,8 +53,7 @@ public class Menu {
 		}
 		catch(Exception e) {
 			System.out.println("Invalid option, try again");
-			return -1;
-			
+			return -1;			
 	    }
 	}
 	

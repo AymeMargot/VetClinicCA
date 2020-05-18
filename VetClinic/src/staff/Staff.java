@@ -2,9 +2,9 @@ package staff;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
@@ -42,7 +42,12 @@ public class Staff {
 	
 	public void orderAnimals() {		
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
-		System.out.println("Sorted elements\n"+ treeSet);
+		lookAfterAnimals.clear();
+		Iterator<Animal> eachAnimal = treeSet.iterator();
+		while (eachAnimal.hasNext()) {
+			lookAfterAnimals.add(eachAnimal.next());	
+		}		
+		System.out.println("- Animals to lookafter: "+ treeSet);
 	}
 	
 
@@ -68,7 +73,15 @@ public class Staff {
 	}
 	
 	public String getAnimals() {
-		return "animals: "+animals;
+		return "Animals Assigned: "+animals;
+	}
+	
+	public String getTasks() {
+		return "Tasks Assigned: "+tasks;
+	}
+	
+	public int getNumberAnimals() {
+		return animals.size();
 	}
 	public int getNumber() {
 		return number;
@@ -106,10 +119,23 @@ public class Staff {
 		animals.add(animal);
 	}	
 
+	public int getNumberlookAfter() {
+		return lookAfterAnimals.size();
+	}
+	
+	public Animal getTopLookAfter() {
+		Animal animal = lookAfterAnimals.peek();
+		animals.remove(animal);
+		return lookAfterAnimals.remove();		
+	}
+	
+	public Animal getNextLookAfter() {
+		return lookAfterAnimals.peek();		
+	}
 	
 	@Override
     public String toString() {
-       return "[("+number+"), "+name+","+surname+","+salaryLevel+",("+category+"), Duties: "+tasks+"]" ;
+       return "Cod"+number+"  "+name+" - "+surname+"("+category+")" ;
     }
 
 }
