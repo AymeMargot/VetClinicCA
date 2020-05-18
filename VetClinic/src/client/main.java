@@ -170,8 +170,8 @@ public class main {
 	
 	public void listAnimalsAssignedToStaff() {
 		
-		if(staff.getAllSize() == 0 || factory.getSize() == 0) {
-			System.out.println("There are no staff in the company, or animals into the factory, please go option 1 and 5 first");
+		if(staff.getSizeMedical() == 0 || factory.getSize() == 0) {
+			System.out.println("There are no staff in the company, or animals into the factory, please go option 1, and option 5 first");
 		}
 		else {
 			staff.assignAnimals(factory);
@@ -181,8 +181,8 @@ public class main {
 	
 	public void listAnimalsByMedical() {
 		
-		if(staff.getSizeMedical() == 0) {
-			System.out.println("There are no staff in the company, please go option 1 first");
+		if(staff.getSizeMedical() == 0 || factory.getSize() == 0) {
+			System.out.println("There are no staff in the company, or animals into the factory, please go option 1, and option 5 first");
 		}
 		else {
 			
@@ -198,8 +198,8 @@ public class main {
 	}
 	
 	public void listAnimalsByLookAfter() {
-		if(staff.getSizeMedical() == 0) {
-			System.out.println("There are no staff in the company, please go option 1 first");
+		if(staff.getSizeMedical() == 0 || factory.getSize() == 0) {
+			System.out.println("There are no staff in the company, or animals into the factory, please go option 1, and option 5 first");
 		}
 		else {
 			
@@ -251,7 +251,6 @@ public class main {
 				  listAnimalsByLookAfter();
 				break;
 			  default:
-				System.out.println("Data entered invalid!!.");
 			    System.exit(0);
 			}			
 			

@@ -225,9 +225,9 @@ public class StaffFactory {
 			System.out.println("No Staff Medical into the company, please check it");
 		}
 		int counter = 0;
-		System.out.println("....................................................");
+		System.out.println(".....................................................................");
 		System.out.println("Searching  "+ name);
-		System.out.println("....................................................");
+		System.out.println(".....................................................................");
 		for(int i=0; i < medical.size(); i++) {
 			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase()) && medical.get(i).getNumberAnimals()!=0) {
 				System.out.println(medical.get(i));
@@ -235,7 +235,7 @@ public class StaffFactory {
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
+		System.out.println(".....................................................................");
 		System.out.println("Total: "+ counter+ "  into the company");
 	}
 	
@@ -244,18 +244,25 @@ public class StaffFactory {
 			System.out.println("No Staff Medical into the company, please check it");
 		}
 		int counter = 0;
-		System.out.println("....................................................");
+		System.out.println(".....................................................................");
 		System.out.println("Searching  "+ name);
-		System.out.println("....................................................");
+		System.out.println(".....................................................................");
+		
 		for(int i=0; i < medical.size(); i++) {
 			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase()) && medical.get(i).getNumberlookAfter()!=0) {
-				System.out.println(medical.get(i));
-				System.out.println(medical.get(i).getTopLookAfter()+ "is the first to look after");
-				System.out.println(medical.get(i).getNextLookAfter()+ "is the next to look after");
-				counter++;
+				if(medical.get(i).assignAnimals()) {
+					
+					medical.get(i).orderAnimals();
+					System.out.println(medical.get(i));
+					System.out.println(medical.get(i).getTopLookAfter()+ "is the first to look after");
+					System.out.println(medical.get(i).getNextLookAfter()+ "is the next to look after");
+					counter++;
+				}
+				else
+					System.out.println("Animals no assigned to this staff, try choosing option 8");
 			}
 		}
-		System.out.println("....................................................");
+		System.out.println("....................................................................");
 		System.out.println("Total: "+ counter+ "  into the company");
 	}
 	
@@ -289,16 +296,16 @@ public class StaffFactory {
 		if(staff.size() == 0) {
 			System.out.println("There are no staff in the company, please try again");
 		}
-		System.out.println("...............................................................");
+		System.out.println("......................................................................");
 		System.out.println("Vet Lovely Pet - Staff Animals assigned -");
-		System.out.println("...............................................................");
+		System.out.println("......................................................................");
 		for(int i=0; i < staff.size(); i++) {
 			if(staff.get(i).getNumberAnimals()!=0) {
 				System.out.println(staff.get(i));
 				System.out.println("- "+staff.get(i).getAnimals());
 			}			
 		}
-		System.out.println("...............................................................");
+		System.out.println("......................................................................");
 		System.out.println("Total Employees "+ staff.size());
 	}
 }

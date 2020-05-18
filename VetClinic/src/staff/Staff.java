@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
@@ -20,6 +19,8 @@ public class Staff {
 	protected int salaryLevel;
 	protected String category;
 	
+	protected boolean assignAnimals;
+	
 	protected  HashSet<Task> tasks = new HashSet<Task>();	
 	protected  HashSet<Animal> animals = new HashSet<Animal>();	
 	protected  Queue<Animal> lookAfterAnimals = new LinkedList<Animal>();	
@@ -29,7 +30,8 @@ public class Staff {
 		this.name = "";
 		this.surname = "";
 		this.salaryLevel = 0;
-		category= this.getClass().getSimpleName();	
+		category= this.getClass().getSimpleName();
+		assignAnimals=false;
 	}
 	
 	public Staff(int number,String name,String surname,int salaryLevel) {
@@ -38,6 +40,10 @@ public class Staff {
 		this.surname = surname;
 		this.salaryLevel = salaryLevel;
 		category= this.getClass().getSimpleName();
+	}
+	
+	public boolean assignAnimals() {
+		return(animals.size()!=0);
 	}
 	
 	public void orderAnimals() {		
