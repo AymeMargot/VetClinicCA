@@ -124,16 +124,16 @@ public class StaffFactory {
 		if(staff.size() == 0) {
 			System.out.println("There are no staff in the company, please try again");
 		}
-		String format = "%-5s%s%n";
-		System.out.println("...............................................................");
+				
 		System.out.println("Vet Lovely Pet - List of employees -");
+		System.out.println("...................................................................................");
 		System.out.println(" CODE	 NAME	        SURNAME   	POSITION");
-		System.out.println("...............................................................");
+		System.out.println("...................................................................................");
 		for(int i=0; i < staff.size(); i++) {
 			String row = "   "+staff.get(i).getNumber()+spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory();
 			System.out.println(row);
 		}
-		System.out.println("...............................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Total Employees "+ staff.size());
 	}
 	
@@ -170,16 +170,16 @@ public class StaffFactory {
 			return false;
 		}
 		int counter = 0;
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Staff "+ category);
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		for(int i=0; i < staff.size(); i++) {
 			if(category.equals(staff.get(i).getCategory())) {
 				System.out.println(staff.get(i));
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Total: "+ counter+ "  into the company");
 		return true;
 	}

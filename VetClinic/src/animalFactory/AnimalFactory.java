@@ -75,10 +75,16 @@ public class AnimalFactory {
 			System.out.println("There are no animals in the factory, please try again");
 			return false;
 		}
-		
+		System.out.println("Vet Lovely Pet - List of animals -");
+		System.out.println("...................................................................................");
+		System.out.println(" CODE	 NAME	        CATEGORY    AGE     MEDICAL CONDITION ");
+		System.out.println("...................................................................................");
 		for(int i=0; i < animals.size(); i++) {
-			System.out.println(animals.get(i));
+			String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+			System.out.println(row);
+			//System.out.println(animals.get(i));
 		}
+		System.out.println("\n");
 		return true;
 	}
 	
@@ -89,17 +95,19 @@ public class AnimalFactory {
 			return false;
 		}
 		int counter = 0;
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Animals "+ category);
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		for(int i=0; i < animals.size(); i++) {
 			if(category.equals(animals.get(i).getCategory())) {
-				System.out.println(animals.get(i));
+				String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+				System.out.println(row);
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Total: "+ counter+ "  into the factory");
+		System.out.println("\n");
 		return true;
 	}
 	
@@ -108,17 +116,32 @@ public class AnimalFactory {
 			System.out.println("No animals into the factory, please check it");
 		}
 		int counter = 0;
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Searching  "+ name);
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		for(int i=0; i < animals.size(); i++) {
 			if(name.toLowerCase().equals(animals.get(i).getName().toLowerCase())) {
-				System.out.println(animals.get(i));
+				String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+				System.out.println(row);
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
+		System.out.println("...................................................................................");
 		System.out.println("Total: "+ counter+ "  into the factory");
-	}	
+		System.out.println("\n");
+	}
+	
+	//***************************************************************
+		public String spaces(String word, int limit){
+			int sizeWord = word.length();
+			int n = limit -sizeWord;
+			String str="";
+			int i=0;
+			while(i<n) {
+				 str += " ";
+				i++;
+			}
+	       return str;
+		} 
 	
 }

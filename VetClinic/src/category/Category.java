@@ -42,9 +42,10 @@ public class Category {
 			return -1;
 		}
 		else {
-			System.out.println("....................................................");
+			System.out.println("\n");
+			System.out.println("...................................................................................");
 			System.out.println("Categories");
-			System.out.println("....................................................");
+			System.out.println("...................................................................................");
 			for(int i=0; i < categories.size();i++) {
 				System.out.println(i+1+") "+categories.get(i));				
 			}			
