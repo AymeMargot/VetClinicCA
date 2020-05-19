@@ -182,14 +182,14 @@ public class main {
 	public void listAnimalsByMedical() {
 		
 		if(staff.getSizeMedical() == 0 || factory.getSize() == 0) {
-			System.out.println("There are no staff in the company, or animals into the factory, please go option 1, and option 5 first");
+			System.out.println("There are no medical staff in the company, or animals into the factory, please go option 1, and option 5 first");
 		}
 		else {
 			
 			System.out.print("Enter the name medical staff you are looking for: ");
 			try{
 				String searching = text.nextLine();
-				staff.searchStaffByMedic(searching);
+				staff.searchAnimalsByMedical(searching);
 			}
 			catch(Exception e) {
 				System.out.println("data invalid!!, please try again");

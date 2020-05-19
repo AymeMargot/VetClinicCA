@@ -124,43 +124,41 @@ public class StaffFactory {
 		if(staff.size() == 0) {
 			System.out.println("There are no staff in the company, please try again");
 		}
-				
-		System.out.println("Vet Lovely Pet - List of employees -");
-		System.out.println("...................................................................................");
-		System.out.println(" CODE	 NAME	        SURNAME   	POSITION");
-		System.out.println("...................................................................................");
+		header("Vet Lovely Pet - List of employees -");			
 		for(int i=0; i < staff.size(); i++) {
 			String row = "   "+staff.get(i).getNumber()+spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory();
 			System.out.println(row);
 		}
-		System.out.println("...................................................................................");
-		System.out.println("Total Employees "+ staff.size());
+		totalFooter("Total Employees "+ staff.size());
+		footer();
 	}
 	
-	public boolean printAdminStaff() {
+	public void printAdminStaff() {
 		
 		if(admin.size() == 0) {
-			System.out.println("There are no staff Admin in the company, please try again");
-			return false;
+			System.out.println("There are no admin staff in the company, please try again");
 		}
-		
+		header("Admin Staff - List of employees -");			
 		for(int i=0; i < admin.size(); i++) {
-			System.out.println(admin.get(i));
+			String row = "   "+admin.get(i).getNumber()+spaces(String.valueOf(admin.get(i).getNumber()),6)+admin.get(i).getName()+spaces(admin.get(i).getName(),15)+admin.get(i).getSurname()+spaces(admin.get(i).getSurname(),15)+admin.get(i).getCategory();
+			System.out.println(row);
 		}
-		return true;
+		totalFooter("Total Admin Employees "+ admin.size());
+		footer();
 	}
 	
-	public boolean printMedicalStaff() {
+	public void printMedicalStaff() {
 		
 		if(medical.size() == 0) {
 			System.out.println("There are no medical staff in the company, please try again");
-			return false;
 		}
-		
+		header("Medical Staff - List of employees -");			
 		for(int i=0; i < medical.size(); i++) {
-			System.out.println(medical.get(i) + medical.get(i).getAnimals());
+			String row = "   "+medical.get(i).getNumber()+spaces(String.valueOf(medical.get(i).getNumber()),6)+medical.get(i).getName()+spaces(medical.get(i).getName(),15)+medical.get(i).getSurname()+spaces(medical.get(i).getSurname(),15)+medical.get(i).getCategory();
+			System.out.println(row);
 		}
-		return true;
+		totalFooter("Total Medical Employees "+ admin.size());
+		footer();
 	}
 	
 	public boolean printStaffByCategory(String category) {
@@ -170,17 +168,16 @@ public class StaffFactory {
 			return false;
 		}
 		int counter = 0;
-		System.out.println("...................................................................................");
-		System.out.println("Staff "+ category);
-		System.out.println("...................................................................................");
+		header("Staff "+ category);
 		for(int i=0; i < staff.size(); i++) {
 			if(category.equals(staff.get(i).getCategory())) {
-				System.out.println(staff.get(i));
+				String row = "   "+staff.get(i).getNumber()+spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory();
+				System.out.println(row);
 				counter++;
 			}
 		}
-		System.out.println("...................................................................................");
-		System.out.println("Total: "+ counter+ "  into the company");
+		totalFooter("Total: "+ counter+ "  into the company");
+		footer();
 		return true;
 	}
 	
@@ -191,18 +188,16 @@ public class StaffFactory {
 			return false;
 		}
 		int counter = 0;
-		System.out.println("....................................................");
-		System.out.println("Task (Code: "+ task.getCode() +")  "+ task.getName());
-		System.out.println("....................................................");
+		header("Task (Code: "+ task.getCode() +")  "+ task.getName());
 		for(int i=0; i < staff.size(); i++) {
 			if(staff.get(i).isContained(task)) {
-				System.out.println(staff.get(i));
-				System.out.println(staff.get(i).getTasks());
+				String row = "   "+staff.get(i).getNumber()+spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory()+spaces(staff.get(i).getCategory(),15)+staff.get(i).getTasks();
+				System.out.println(row);				
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
-		System.out.println("Total: "+ counter+ "  into the company");
+		totalFooter("Total: "+ counter+ "  into the company");
+		footer();
 		return true;
 	}
 	
@@ -211,36 +206,44 @@ public class StaffFactory {
 			System.out.println("No Staff into the company, please check it");
 		}
 		int counter = 0;
-		System.out.println("....................................................");
-		System.out.println("Searching  "+ name);
-		System.out.println("....................................................");
+		header("Searching  "+ name);
 		for(int i=0; i < staff.size(); i++) {
 			if(name.toLowerCase().equals(staff.get(i).getName().toLowerCase())) {
-				System.out.println(staff.get(i));
+				String row = "   "+staff.get(i).getNumber()+spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory();
+				System.out.println(row);
 				counter++;
 			}
 		}
-		System.out.println("....................................................");
-		System.out.println("Total: "+ counter+ "  into the company");	
+		totalFooter("Total: "+ counter+ "  into the company");
+		footer();	
 	}
 	
-	public void searchStaffByMedic(String name) {
+	public void searchAnimalsByMedical(String name) {
 		if(medical.size() == 0) {
 			System.out.println("No Staff Medical into the company, please check it");
 		}
 		int counter = 0;
-		System.out.println(".....................................................................");
-		System.out.println("Searching  "+ name);
-		System.out.println(".....................................................................");
-		for(int i=0; i < medical.size(); i++) {
-			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase()) && medical.get(i).getNumberAnimals()!=0) {
-				System.out.println(medical.get(i));
-				medical.get(i).orderAnimals();
+		String animals;
+		header("Searching  "+ name);
+		for(int i=0; i < medical.size(); i++) {	
+			
+			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase())) {
+				header2(medical.get(i).getName()+" "+medical.get(i).getSurname()+" "+medical.get(i).getCategory());
+				if(medical.get(i).getNumberAnimals() == 0)
+					animals="No animals assigned";				
+				else {
+					for(int j=0; j <medical.get(i).getNumberAnimals(); j++) {
+						
+					}
+				}
+					animals=medical.get(i).orderAnimals();
+				String row = "   "+medical.get(i).getNumber()+spaces(String.valueOf(medical.get(i).getNumber()),6)+medical.get(i).getName()+spaces(medical.get(i).getName(),15)+medical.get(i).getSurname()+spaces(medical.get(i).getSurname(),15)+medical.get(i).getCategory()+spaces(medical.get(i).getCategory(),25)+animals;
+				System.out.println(row);			
 				counter++;
 			}
 		}
-		System.out.println(".....................................................................");
-		System.out.println("Total: "+ counter+ "  into the company");
+		totalFooter("Total: "+ counter+ "  into the company");
+		footer();	
 	}
 	
 	public void searchStaffByLookAfter(String name) {
@@ -248,15 +251,12 @@ public class StaffFactory {
 			System.out.println("No Staff Medical into the company, please check it");
 		}
 		int counter = 0;
-		System.out.println(".....................................................................");
-		System.out.println("Searching  "+ name);
-		System.out.println(".....................................................................");
-		
+		header("Searching  "+ name);		
 		for(int i=0; i < medical.size(); i++) {
 			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase()) && medical.get(i).getNumberlookAfter()!=0) {
 				if(medical.get(i).assignAnimals()) {
 					
-					medical.get(i).orderAnimals();
+					//medical.get(i).orderAnimals();
 					System.out.println(medical.get(i));
 					System.out.println(medical.get(i).getTopLookAfter()+ "is the first to look after");
 					System.out.println(medical.get(i).getNextLookAfter()+ "is the next to look after");
@@ -266,8 +266,42 @@ public class StaffFactory {
 					System.out.println("Animals no assigned to this staff, try choosing option 8");
 			}
 		}
-		System.out.println("....................................................................");
-		System.out.println("Total: "+ counter+ "  into the company");
+		totalFooter("Total: "+ counter+ "  into the company");
+		footer();
+	}
+	
+	
+	public void assignAnimals(AnimalFactory animals) {		
+		Random rand = new Random();
+		if(medical.size() == 0 || animals.getSize() == 0) {
+			System.out.println("Please check animal factory and staff, both should not be empty");
+		}		
+		
+		for(int i=0; i < animals.getSize();i++) {			
+			int j= rand.nextInt(medical.size());
+			medical.get(j).setAnimal(animals.getAnimal(i));				
+		}	
+	}
+	
+	public void printStaffAnimals() {
+		
+		if(medical.size() == 0) {
+			System.out.println("There are no staff in the company, please try again");
+		}
+		header("Vet Lovely Pet - Staff Animals assigned -");
+		String animals;
+		for(int i=0; i < medical.size(); i++) {
+			if(medical.get(i).getNumberAnimals()!=0) {
+				if(medical.get(i).getNumberAnimals()!=0)
+					animals=medical.get(i).getAnimals();
+				else
+					animals="No animals assigned";
+				String row = "   "+medical.get(i).getNumber()+spaces(String.valueOf(medical.get(i).getNumber()),6)+medical.get(i).getName()+spaces(medical.get(i).getName(),15)+medical.get(i).getSurname()+spaces(medical.get(i).getSurname(),15)+medical.get(i).getCategory()+spaces(medical.get(i).getCategory(),25)+animals;
+				System.out.println(row);
+			}			
+		}
+		totalFooter("Total Employees "+ medical.size());
+		footer();
 	}
 	
 	public int getAllSize() {
@@ -282,37 +316,6 @@ public class StaffFactory {
 		return admin.size();
 	}
 	
-	public void assignAnimals(AnimalFactory animals) {		
-		Random rand = new Random();
-		if(medical.size() == 0 || animals.getSize() == 0) {
-			System.out.println("Please check animal factory and staff, both should not be empty");
-		}		
-		
-		for(int i=0; i < animals.getSize();i++) {
-			
-			int j= rand.nextInt(medical.size());
-			medical.get(j).setAnimal(animals.getAnimal(i));				
-		}	
-	}
-	
-	public void printStaffAnimals() {
-		
-		if(staff.size() == 0) {
-			System.out.println("There are no staff in the company, please try again");
-		}
-		System.out.println("......................................................................");
-		System.out.println("Vet Lovely Pet - Staff Animals assigned -");
-		System.out.println("......................................................................");
-		for(int i=0; i < staff.size(); i++) {
-			if(staff.get(i).getNumberAnimals()!=0) {
-				System.out.println(staff.get(i));
-				System.out.println("- "+staff.get(i).getAnimals());
-			}			
-		}
-		System.out.println("......................................................................");
-		System.out.println("Total Employees "+ staff.size());
-	}
-	
 	//***************************************************************
 	public String spaces(String word, int limit){
 		int sizeWord = word.length();
@@ -325,4 +328,32 @@ public class StaffFactory {
 		}
        return str;
 	} 
+	
+	private void header(String title) {
+		System.out.println("\n");
+		System.out.println(title);
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println(" CODE	 NAME	        SURNAME   	POSITION");
+		System.out.println("===================================================================================");
+		
+	}
+	
+	private void header2(String title) {
+		System.out.println("\n");
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println(title);
+		System.out.println("===================================================================================");
+		
+	}
+	
+	private void footer() {
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println("\n");
+	}
+	
+	private void totalFooter(String total) {
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println(total);
+		
+	}
 }

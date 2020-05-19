@@ -100,13 +100,14 @@ public class TaskFactory {
 			return -1;
 		}
 		else {
-			System.out.println("....................................................");
-			System.out.println("Tasks");
-			System.out.println("....................................................");
+			System.out.println("-----------------------------------------------------------------------------------");
+			System.out.println("TASKS");
+			System.out.println("===================================================================================");
 			for(int i=0; i < tasks.size();i++) {
 				System.out.println(i+1+") "+tasks.get(i));				
 			}			
 			System.out.println(tasks.size()+1+") Back to the main menu");
+			System.out.println("-----------------------------------------------------------------------------------");
 			System.out.print("Select an option  ");
 			try {
 				int option = input.nextInt();

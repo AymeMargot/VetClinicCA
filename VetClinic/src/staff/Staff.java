@@ -46,14 +46,14 @@ public class Staff {
 		return(animals.size()!=0);
 	}
 	
-	public void orderAnimals() {		
+	public String orderAnimals() {		
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		lookAfterAnimals.clear();
 		Iterator<Animal> eachAnimal = treeSet.iterator();
 		while (eachAnimal.hasNext()) {
 			lookAfterAnimals.add(eachAnimal.next());	
 		}		
-		System.out.println("- Animals to lookafter: "+ treeSet);
+		return(""+ treeSet);
 	}
 	
 
@@ -79,11 +79,11 @@ public class Staff {
 	}
 	
 	public String getAnimals() {
-		return "Animals Assigned: "+animals;
+		return ""+animals;
 	}
 	
 	public String getTasks() {
-		return "Tasks Assigned: "+tasks;
+		return ""+tasks;
 	}
 	
 	public int getNumberAnimals() {
