@@ -26,6 +26,15 @@ public class headerFooter {
 		
 	}
 	
+	public void headerAnimal(String title) {
+		System.out.println("\n");
+		System.out.println(title);
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println(" CODE	 NAME	      CATEGORY     AGE	  MEDICAL CONDITION");
+		System.out.println("===================================================================================");
+		
+	}
+	
 	public void header2(String title) {
 		System.out.println("\n");
 		System.out.println("-----------------------------------------------------------------------------------");
@@ -38,6 +47,13 @@ public class headerFooter {
 		System.out.println("\n");
 		System.out.println(title);
 		System.out.println("-----------------------------------------------------------------------------------");		
+	}
+	
+	public void header4(String title) {
+		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println(title);
+		System.out.println("===================================================================================");
+		
 	}
 	public void footer() {
 		System.out.println("-----------------------------------------------------------------------------------");

@@ -78,7 +78,7 @@ public class AnimalFactory {
 			System.out.println("There are no animals in the factory, please try again");
 			return false;
 		}		
-		dessign.header("Vet Lovely Pet - List of animals -");		
+		dessign.headerAnimal("Vet Lovely Pet - List of animals -");		
 		for(int i=0; i < animals.size(); i++) {
 			String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
 			System.out.println(row);
@@ -95,7 +95,7 @@ public class AnimalFactory {
 			return false;
 		}
 		int counter = 0;		
-		dessign.header("Animals "+ category);
+		dessign.headerAnimal("Animals "+ category);
 		for(int i=0; i < animals.size(); i++) {
 			if(category.equals(animals.get(i).getCategory())) {
 				String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
@@ -113,7 +113,7 @@ public class AnimalFactory {
 			System.out.println("No animals into the factory, please check it");
 		}
 		int counter = 0;	
-		dessign.header("Searching  "+ name);		
+		dessign.headerAnimal("Searching  "+ name);		
 		for(int i=0; i < animals.size(); i++) {
 			if(name.toLowerCase().equals(animals.get(i).getName().toLowerCase())) {
 				String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();

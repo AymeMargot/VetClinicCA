@@ -50,7 +50,7 @@ public class Staff {
 	}
 	
 	
-	public void orderAnimals() {		
+	public void printAnimals() {		
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		lookAfterAnimals.clear();
 		Iterator<Animal> eachAnimal = treeSet.iterator();
@@ -63,7 +63,7 @@ public class Staff {
 		}
 	}
 	
-	public void printAnimals() {
+	public void orderAnimals() {
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		lookAfterAnimals.clear();
 		Iterator<Animal> eachAnimal = treeSet.iterator();
@@ -73,6 +73,7 @@ public class Staff {
 	}
 	
 	public void printAnimalsLookAfter() {
+		orderAnimals();
 		for (Animal animal : lookAfterAnimals) {
 			String row = "   "+animal.getCode()+top.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+top.spaces(animal.getName(),15)+animal.getCategory()+top.spaces(animal.getCategory(),15)+animal.getAge()+top.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
 			System.out.println(row);

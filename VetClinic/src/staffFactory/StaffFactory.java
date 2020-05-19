@@ -194,7 +194,7 @@ public class StaffFactory {
 		dessign.header("Task (Code: "+ task.getCode() +")  "+ task.getName());
 		for(int i=0; i < staff.size(); i++) {
 			if(staff.get(i).isContained(task)) {
-				String row = "   "+staff.get(i).getNumber()+dessign.spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+dessign.spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+dessign.spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory()+dessign.spaces(staff.get(i).getCategory(),15)+staff.get(i).getTasks();
+				String row = "   "+staff.get(i).getNumber()+dessign.spaces(String.valueOf(staff.get(i).getNumber()),6)+staff.get(i).getName()+dessign.spaces(staff.get(i).getName(),15)+staff.get(i).getSurname()+dessign.spaces(staff.get(i).getSurname(),15)+staff.get(i).getCategory()+dessign.spaces(staff.get(i).getCategory(),20)+staff.get(i).getTasks();
 				System.out.println(row);				
 				counter++;
 			}
@@ -230,11 +230,11 @@ public class StaffFactory {
 		for(int i=0; i < medical.size(); i++) {	
 			
 			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase())) {
-				dessign.header2(medical.get(i).getName()+" "+medical.get(i).getSurname()+" "+medical.get(i).getCategory());
+				dessign.header4(medical.get(i).getName()+" "+medical.get(i).getSurname()+" "+medical.get(i).getCategory());
 				if(medical.get(i).getNumberAnimals() == 0)
 					System.out.println("No animals assigned");				
 				else 					
-					medical.get(i).orderAnimals();				
+					medical.get(i).printAnimals();				
 				counter++;
 			}
 		}
@@ -250,7 +250,7 @@ public class StaffFactory {
 		dessign.header3("Searching  "+ name);		
 		for(int i=0; i < medical.size(); i++) {
 			if(name.toLowerCase().equals(medical.get(i).getName().toLowerCase())) {
-				dessign.header2(medical.get(i).getName()+" "+medical.get(i).getSurname()+" "+medical.get(i).getCategory());
+				dessign.header4(medical.get(i).getName()+" "+medical.get(i).getSurname()+" "+medical.get(i).getCategory());
 				if(medical.get(i).getNumberlookAfter() == 0)
 					System.out.println("No animals assigned");				
 				else {

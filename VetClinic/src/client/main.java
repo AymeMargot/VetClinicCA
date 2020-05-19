@@ -87,7 +87,6 @@ public class main {
 			int option = tasks.print();
 			while(option != tasks.getSize() && option!=-1) {
 				if(option != -2) {
-					System.out.println("OPTION"+ option);
 					Task task = tasks.getTask(option);
 					staff.printStaffByTask(task,tasks);
 				}
