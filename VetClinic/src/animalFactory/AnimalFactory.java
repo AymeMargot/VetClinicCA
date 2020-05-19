@@ -2,6 +2,7 @@ package animalFactory;
 import java.util.LinkedList;
 import animal.*;
 import general.ProcessName;
+import general.headerFooter;
 import general.ProcessCode;
 
 
@@ -12,6 +13,8 @@ public class AnimalFactory {
 	private static ProcessMedicalCondition healthConditionsGenerator;
 	private static ProcessCode codeGenerator;
 	private static String pathFile ="..\\VetClinic\\src\\animalFactory\\petnames.txt";	
+	
+	public headerFooter dessign = new headerFooter();
 	
 	public AnimalFactory() {
 		
@@ -75,13 +78,13 @@ public class AnimalFactory {
 			System.out.println("There are no animals in the factory, please try again");
 			return false;
 		}		
-		header("Vet Lovely Pet - List of animals -");		
+		dessign.header("Vet Lovely Pet - List of animals -");		
 		for(int i=0; i < animals.size(); i++) {
-			String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+			String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
 			System.out.println(row);
 		}
-		totalFooter("Total: "+animals.size());
-		footer();		
+		dessign.totalFooter("Total: "+animals.size());
+		dessign.footer();		
 		return true;
 	}
 	
@@ -92,16 +95,16 @@ public class AnimalFactory {
 			return false;
 		}
 		int counter = 0;		
-		header("Animals "+ category);
+		dessign.header("Animals "+ category);
 		for(int i=0; i < animals.size(); i++) {
 			if(category.equals(animals.get(i).getCategory())) {
-				String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+				String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
 				System.out.println(row);
 				counter++;
 			}
 		}
-		totalFooter("Total: "+ counter+ "  into the factory");	
-		footer();
+		dessign.totalFooter("Total: "+ counter+ "  into the factory");	
+		dessign.footer();
 		return true;
 	}
 	
@@ -110,49 +113,15 @@ public class AnimalFactory {
 			System.out.println("No animals into the factory, please check it");
 		}
 		int counter = 0;	
-		header("Searching  "+ name);		
+		dessign.header("Searching  "+ name);		
 		for(int i=0; i < animals.size(); i++) {
 			if(name.toLowerCase().equals(animals.get(i).getName().toLowerCase())) {
-				String row = "   "+animals.get(i).getCode()+spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
+				String row = "   "+animals.get(i).getCode()+dessign.spaces(String.valueOf(animals.get(i).getCode()),6)+animals.get(i).getName()+dessign.spaces(animals.get(i).getName(),15)+animals.get(i).getCategory()+dessign.spaces(animals.get(i).getCategory(),15)+animals.get(i).getAge()+dessign.spaces(String.valueOf(animals.get(i).getAge()),6)+animals.get(i).getMedicalCondition().getName();
 				System.out.println(row);
 				counter++;
 			}
 		}
-		totalFooter("Total: "+ counter+ "  into the factory");
-		footer();
+		dessign.totalFooter("Total: "+ counter+ "  into the factory");
+		dessign.footer();
 	}
-	
-	//***************************************************************
-		public String spaces(String word, int limit){
-			int sizeWord = word.length();
-			int n = limit -sizeWord;
-			String str="";
-			int i=0;
-			while(i<n) {
-				 str += " ";
-				i++;
-			}
-	       return str;
-		} 
-		
-		private void header(String title) {
-			System.out.println("\n");
-			System.out.println(title);
-			System.out.println("-----------------------------------------------------------------------------------");
-			System.out.println(" CODE	 NAME	        CATEGORY    AGE     MEDICAL CONDITION ");
-			System.out.println("===================================================================================");
-			
-		}
-		
-		private void footer() {
-			System.out.println("-----------------------------------------------------------------------------------");
-			System.out.println("\n");
-		}
-		
-		private void totalFooter(String total) {
-			System.out.println("-----------------------------------------------------------------------------------");
-			System.out.println(total);
-			
-		}
-	
 }

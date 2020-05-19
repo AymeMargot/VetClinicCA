@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import animal.Animal;
+import general.headerFooter;
 import task.Task;
 
 public class Staff {
@@ -24,6 +25,8 @@ public class Staff {
 	protected  HashSet<Task> tasks = new HashSet<Task>();	
 	protected  HashSet<Animal> animals = new HashSet<Animal>();	
 	protected  Queue<Animal> lookAfterAnimals = new LinkedList<Animal>();	
+	
+	public headerFooter top = new headerFooter();
 
 	public Staff() {
 		this.number = 0;
@@ -46,16 +49,35 @@ public class Staff {
 		return(animals.size()!=0);
 	}
 	
-	public String orderAnimals() {		
+	
+	public void orderAnimals() {		
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		lookAfterAnimals.clear();
 		Iterator<Animal> eachAnimal = treeSet.iterator();
 		while (eachAnimal.hasNext()) {
 			lookAfterAnimals.add(eachAnimal.next());	
-		}		
-		return(""+ treeSet);
+		}			
+		for(Animal animal : treeSet) {
+			String row = "   "+animal.getCode()+top.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+top.spaces(animal.getName(),15)+animal.getCategory()+top.spaces(animal.getCategory(),15)+animal.getAge()+top.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
+			System.out.println(row);
+		}
 	}
 	
+	public void printAnimals() {
+		Set<Animal> treeSet = new TreeSet<Animal>(animals);
+		lookAfterAnimals.clear();
+		Iterator<Animal> eachAnimal = treeSet.iterator();
+		while (eachAnimal.hasNext()) {
+			lookAfterAnimals.add(eachAnimal.next());	
+		}
+	}
+	
+	public void printAnimalsLookAfter() {
+		for (Animal animal : lookAfterAnimals) {
+			String row = "   "+animal.getCode()+top.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+top.spaces(animal.getName(),15)+animal.getCategory()+top.spaces(animal.getCategory(),15)+animal.getAge()+top.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
+			System.out.println(row);
+		}
+	}
 
 	public boolean isContained(Task task) {
 		
