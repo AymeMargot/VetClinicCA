@@ -7,10 +7,23 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
-
 import animal.Animal;
 import general.headerFooter;
 import task.Task;
+/*
+ * Staff this class represents every staff in the staff list
+ * number: is the unique number
+ * name: the staff name
+ * surname: the staff surname
+ * salarylevel: the salary level
+ * category: the name of the class
+ * assignAnimals: boolean variable, which will return true whenever the animals list will contain data
+ * tasks: is a list of task type of HashSet in order to not repeat it none of them
+ * animals: is a list of animals, which will contain the animals assigned, type of HashSet in order to not repeat it none of them
+ * lookAfterAnimals: this is a list which will contain animals ordered by a code, the code will tell us the priority to be look after
+ * this structure is a Queue, the top will be the first to go out
+ * dessign : Class containing the format designing for footer or header on printing methods 
+ */
 
 public class Staff {
 	
@@ -26,8 +39,8 @@ public class Staff {
 	protected  HashSet<Animal> animals = new HashSet<Animal>();	
 	protected  Queue<Animal> lookAfterAnimals = new LinkedList<Animal>();	
 	
-	public headerFooter top = new headerFooter();
-
+	public headerFooter dessign = new headerFooter();
+	// constructor
 	public Staff() {
 		this.number = 0;
 		this.name = "";
@@ -36,7 +49,7 @@ public class Staff {
 		category= this.getClass().getSimpleName();
 		assignAnimals=false;
 	}
-	
+	// constructor
 	public Staff(int number,String name,String surname,int salaryLevel) {
 		this.number = number;
 		this.name = name;
@@ -44,25 +57,28 @@ public class Staff {
 		this.salaryLevel = salaryLevel;
 		category= this.getClass().getSimpleName();
 	}
-	
+	// Method will return true whenever the animals list contains elements
 	public boolean assignAnimals() {
 		return(animals.size()!=0);
 	}
 	
-	
-	public void printAnimals() {		
+	// Method will print animals assigned
+	public void printAnimals() {	
+		//first step we need to order the list, that is why the animals list will be converted into a TreeSet structure
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
-		lookAfterAnimals.clear();
+		lookAfterAnimals.clear();// lookAfterAnimals is an auxiliary list, before assign animals, it need to be empty
 		Iterator<Animal> eachAnimal = treeSet.iterator();
-		while (eachAnimal.hasNext()) {
+		while (eachAnimal.hasNext()) {// once we have the animals ordered, they will get added into the lookAfterAnimals queue
 			lookAfterAnimals.add(eachAnimal.next());	
-		}			
+		}	
+		// print the animals ordered
 		for(Animal animal : treeSet) {
-			String row = "   "+animal.getCode()+top.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+top.spaces(animal.getName(),15)+animal.getCategory()+top.spaces(animal.getCategory(),15)+animal.getAge()+top.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
+			String row = "   "+animal.getCode()+dessign.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+dessign.spaces(animal.getName(),15)+animal.getCategory()+dessign.spaces(animal.getCategory(),15)+animal.getAge()+dessign.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
 			System.out.println(row);
 		}
 	}
 	
+	// order animals and copy them to the lookAfterAnimals queue
 	public void orderAnimals() {
 		Set<Animal> treeSet = new TreeSet<Animal>(animals);
 		lookAfterAnimals.clear();
@@ -71,28 +87,37 @@ public class Staff {
 			lookAfterAnimals.add(eachAnimal.next());	
 		}
 	}
-	
+	// printing animals from the list lookAfterAnimals
 	public void printAnimalsLookAfter() {
 		orderAnimals();
 		for (Animal animal : lookAfterAnimals) {
-			String row = "   "+animal.getCode()+top.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+top.spaces(animal.getName(),15)+animal.getCategory()+top.spaces(animal.getCategory(),15)+animal.getAge()+top.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
+			String row = "   "+animal.getCode()+dessign.spaces(String.valueOf(animal.getCode()),6)+animal.getName()+dessign.spaces(animal.getName(),15)+animal.getCategory()+dessign.spaces(animal.getCategory(),15)+animal.getAge()+dessign.spaces(String.valueOf(animal.getAge()),6)+animal.getMedicalCondition().getName();
 			System.out.println(row);
 		}
 	}
-
+	// this method return true when ever a task is contained into the task list assigned
 	public boolean isContained(Task task) {
-		
+		// the task list is a hash structure in order to get the data, we will convert it into a arraylist
 		ArrayList<Task> aux = new ArrayList<Task>(tasks);
 		int i=0;
 		while(i < aux.size()) {
-			if(aux.get(i).getCode() == task.getCode())
+			if(aux.get(i).getCode() == task.getCode())// is the task code is in the list task assigned will return true
 				return true;
 			i++;
 		}       
         return false;
     }
-	
-		
+	// return the animal which is in the top of the list lookAfterAnimals
+	public Animal getTopLookAfter() {
+		Animal animal = lookAfterAnimals.peek();// getting the top animal
+		animals.remove(animal);// this animal will be removed from the list
+		return lookAfterAnimals.remove();	// this animal will be removed from the lookAfterAnimals list also	
+	}
+	// return the next animal from the list lookAfterAnimals
+	public Animal getNextLookAfter() {
+		return lookAfterAnimals.peek();		
+	}
+	// getters and setters
 	public String getCategory() {
 		return category;
 	}
@@ -150,17 +175,8 @@ public class Staff {
 
 	public int getNumberlookAfter() {
 		return lookAfterAnimals.size();
-	}
+	}	
 	
-	public Animal getTopLookAfter() {
-		Animal animal = lookAfterAnimals.peek();
-		animals.remove(animal);
-		return lookAfterAnimals.remove();		
-	}
-	
-	public Animal getNextLookAfter() {
-		return lookAfterAnimals.peek();		
-	}
 	
 	@Override
     public String toString() {

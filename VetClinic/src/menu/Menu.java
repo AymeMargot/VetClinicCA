@@ -6,11 +6,20 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+import general.headerFooter;
+/*
+ * Menu This class manage the menu options
+ * items: list Map will contain the number of option and the label
+ * input: variable will manage the data entered by the user, in other words the option the user will choose
+ * dessign : Class containing the format designing for footer or header on printing methods 
+ */
 public class Menu {
 	
 	 Map< Integer,String> items;
 	 Scanner input = new Scanner(System.in);
-	
+	 
+	 public headerFooter dessign = new headerFooter();
+	 // constructor, it will be stored by the menu option straight away it is initialized 
 	 public Menu(){
 		
 		 items = new HashMap< Integer,String>(); 
@@ -27,36 +36,33 @@ public class Menu {
 		 items.put(10,"For a given member of the medical staff, pass to the next pet. ");	
 		 items.put(11,"Exit");	
 	}
-	
+	//printing the menu
 	public int print() {
 		
 		Set <Map.Entry <Integer,String> > each = items.entrySet(); 
 		
 		int option;
-		System.out.println("-----------------------------------------------------------------------------------");
-		System.out.println("Vet My lovely pet  - System -");
-		System.out.println("===================================================================================");
+		dessign.header4("VET MY LOVELY PET   - SYSTEM -");		
 		for (Map.Entry <Integer,String> value:each){ 
 			System.out.print(value.getKey()+".- "); 
 	        System.out.println(value.getValue()); 
-	    } 
-		System.out.println("-----------------------------------------------------------------------------------");
-		System.out.print("Enter an option:  ");
+	    }
+		dessign.totalFooter("Enter an option:  ");
 		try {
 			
 			option = input.nextInt();
 			if(option < 1 || option > items.size()){
 				System.out.println("Invalid option try again");
-				return -1;
+				return -1; // whenever the option selected is incorrect it will return -1
 			}			
 			return option;
 		}
 		catch(Exception e) {
 			System.out.println("Invalid option, try again");
-			return -1;			
+			return -1;	// if the user will enter a character instead of a number,it will return -1		
 	    }
 	}
-	
+	// Method will return the last option of the menu, it will always be for getting log out from the system
 	public int getExit() {
 		return items.size();
 	}

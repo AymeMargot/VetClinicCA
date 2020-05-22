@@ -1,7 +1,6 @@
 package client;
 
 import java.util.Scanner;
-
 import animalFactory.AnimalFactory;
 import category.Category;
 import menu.Menu;

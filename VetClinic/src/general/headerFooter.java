@@ -1,10 +1,12 @@
 package general;
-
+/*
+ * This class contains headers and footers used for printing appearance purpose, used in animalFactory and staffFactory classes
+ */
 public class headerFooter {
 	public headerFooter() {
 		
 	}
-
+	// Method generate spaces between the strings printed, in order to build symmetrical columns
 	public String spaces(String word, int limit){
 		int sizeWord = word.length();
 		int n = limit -sizeWord;

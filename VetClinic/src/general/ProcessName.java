@@ -4,13 +4,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+/*
+ * ProcessName This class will generate names
+ */
 public class ProcessName {
-	protected ArrayList<String> animals;
+	protected ArrayList<String> names;
 
 	public ProcessName(int max,String pathFile) {
 		
-		animals = new ArrayList<>();	
+		names = new ArrayList<>();	
 		int counter = 0;		
 		String name;
 		try {
@@ -26,7 +28,7 @@ public class ProcessName {
 		    	  //first letter in Upper case
 		    	  name = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
 		    	  // when ever the element is added the counter will increase
-		    	if(this.animals.add(name)) 
+		    	if(this.names.add(name)) 
 		    		counter++;		            
 		      }
 		      //once the list is full, the file will be closed
@@ -40,16 +42,16 @@ public class ProcessName {
 	}
 	
 	public int getSize() {
-		return this.animals.size();
+		return this.names.size();
 	}
 	
 	public String getElem(int index) {
-		 return this.animals.get(index);
+		 return this.names.get(index);
 	}
 	
 	public String getName(int size) {
 		
 		Random random = new Random();
-		return(animals.get(random.nextInt(size)));
+		return(names.get(random.nextInt(size)));
 	}
 }

@@ -85,13 +85,13 @@ public abstract class Animal implements Comparable<Animal> {
 		this.category = category;
 	}
 	
-	@Override
 	
+	@Override	
+	// print an animal
 	public String toString(){ 
 		return name+"("+code+")";  
 	} 
-	
-	
+	// compare between 2 animal objects	
 	public int compareTo(Animal animal) {		
 		return ((Integer)this.code).compareTo(animal.code);
     }
