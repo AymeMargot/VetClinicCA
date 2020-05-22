@@ -30,7 +30,7 @@ public class headerFooter {
 		System.out.println("\n");
 		System.out.println(title);
 		System.out.println("-----------------------------------------------------------------------------------");
-		System.out.println(" CODE	 NAME	      CATEGORY     AGE	  MEDICAL CONDITION");
+		System.out.println(" CODE	 NAME	      CATEGORY       AGE	   MEDICAL CONDITION");
 		System.out.println("===================================================================================");
 		
 	}
